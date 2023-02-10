@@ -1,14 +1,16 @@
 import React from 'react'
 import Nav from 'react-bootstrap/Nav';
+import './navBar.css'
 
 export default function NavBar() {
     return (
-        <div className='d-flex align-items-start'>
+
+        <div className='teste d-flex align-items-center'>
 
             <Nav defaultActiveKey="/home" className="flex-column">
                 <Nav.Item>
                     <Nav.Link href='/'>
-                       Home
+                        Home
                     </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
@@ -22,6 +24,7 @@ export default function NavBar() {
                     </Nav.Link>
                 </Nav.Item>
             </Nav>
+
         </div>
     )
 }

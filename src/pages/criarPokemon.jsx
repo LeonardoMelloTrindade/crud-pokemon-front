@@ -20,15 +20,15 @@ export default function criarPokemon() {
     
       async function handleSubmit(event) {
         event.preventDefault();
-        const result = await pokemonService.create(nome, tipo, pokedex)
+        const result = await pokemonService.create(nome, tipo, pokedex);
         console.log(result);
       }
 
     return (
 
-        <div className='container d-flex justify-content-between'>
+        <div className='container d-flex justify-content'>
 
-            <div className='nav p-2 flex-shrink-1'>
+            <div className='nav p-2 flex-shrink-1 '>
                 <NavBar />
             </div>
 

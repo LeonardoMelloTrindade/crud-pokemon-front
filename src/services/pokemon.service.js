@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 export default class PokemonService {
   async create(nome, tipo, num) {
     return axios.post('http://localhost:3000/pokemon', {
@@ -8,12 +9,28 @@ export default class PokemonService {
     });
   }
 
+  async edit(id, nome, tipo, num) {
+    return axios.put(`http://localhost:3000/pokemon/${id}`, {
+      nome: nome,
+      tipo: tipo,
+      pokedex: num
+    });
+  }
+
   async get() {
-    return axios.get('http://localhost:3000/pokemon')
+    return axios.get('http://localhost:3000/pokemon');
   }
 
   async getTipos() {
-    return axios.get('http://localhost:3000/pokemon/tipos')
+    return axios.get('http://localhost:3000/pokemon/tipos');
+  }
+
+  async buscar(id) {
+    return axios.get(`http://localhost:3000/pokemon/${id}`);
+  }
+
+  async delete(id) {
+    return axios.delete(`http://localhost:3000/pokemon/${id}`);
   }
 }
 
