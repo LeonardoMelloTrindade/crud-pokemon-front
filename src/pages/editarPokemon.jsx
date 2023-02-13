@@ -44,10 +44,7 @@ export default function editarPokemon() {
     } else {
       setClicked(false);
     }
-
   }
-
-  console.log(tipo)
 
   return (
     <>
