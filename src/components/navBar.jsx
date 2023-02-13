@@ -4,12 +4,10 @@ import './navBar.css'
 
 export default function NavBar() {
     return (
-
-        <div className='teste d-flex align-items-center'>
-
+        <div className='nav_container d-flex align-items-center'>
             <Nav defaultActiveKey="/home" className="flex-column">
                 <Nav.Item>
-                    <Nav.Link href='/'>
+                    <Nav.Link href='/' className='link_personalizado'>
                         Home
                     </Nav.Link>
                 </Nav.Item>
@@ -24,7 +22,6 @@ export default function NavBar() {
                     </Nav.Link>
                 </Nav.Item>
             </Nav>
-
         </div>
     )
 }

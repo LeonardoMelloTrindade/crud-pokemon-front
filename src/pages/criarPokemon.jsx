@@ -36,7 +36,7 @@ export default function criarPokemon() {
 
         <div className=' d-flex justify-content' style={{ height: '100%' }}>
 
-            <div className='nav p-2 flex-shrink-1 '>
+            <div className='nav p-2 flex-shrink-1 align-items-center'>
                 <NavBar />
             </div>
 
@@ -44,12 +44,12 @@ export default function criarPokemon() {
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Nome do Pokemon</Form.Label>
-                        <Form.Control required type="text" placeholder="Digite o nome do pokemon" value={nome} onChange={(e) => setNome(e.target.value)} />
+                        <Form.Control required type="text" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)} />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Digite n N° da Pokedex</Form.Label>
-                        <Form.Control required type="number" placeholder="N° da Pokedex" value={pokedex} onChange={(e) => setPokedex(e.target.value)} />
+                        <Form.Label>N° da Pokedex</Form.Label>
+                        <Form.Control required type="number" placeholder="Pokedex" value={pokedex} onChange={(e) => setPokedex(e.target.value)} />
                     </Form.Group>
                     <Form.Select defaultValue={tipo} required className='bg-light' aria-label="Default select example" onChange={(e) => setTipo(e.target.value)}>
                         <option value={""}>Selecione o tipo</option>

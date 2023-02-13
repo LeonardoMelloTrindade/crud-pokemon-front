@@ -4,8 +4,7 @@ import React from 'react'
 import CriarPokemon from './pages/criarPokemon';
 import ListarPokemons from './pages/listarPokemons'
 import EditarPokemon from './pages/editarPokemon'
-import Menu from './pages/index';
-import BtnDelete from './components/btnDelete'
+import Menu from './pages/menu';
 
 function App() {
 

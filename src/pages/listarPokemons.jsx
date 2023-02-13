@@ -8,10 +8,8 @@ import './listarPokemons.css';
 import './editarPokemon.css';
 
 
-export default function listarPokemons(props) {
+export default function listarPokemons() {
 
-  //const  {statusDelete, setStatusDelete} = useState('');
-  //console.log(statusDelete)
   const [pokemons, setPokemons] = useState([])
   const pokemonService = new PokemonService()
 
@@ -31,25 +29,25 @@ export default function listarPokemons(props) {
           <thead>
             <tr className='align-items-center'>
               <th>Nome</th>
-              <th>Tipo</th>
-              <th>Imagem</th>
-              <th>Ações</th>
+              <th className="text-center">Tipo</th>
+              <th className="text-center">Imagem</th>
+              <th className="text-center">Ações</th>
             </tr>
           </thead>
           <tbody>
             {pokemons.map(pokemon => {
               return (
                 <tr key={pokemon.nome}>
-                  <td>
+                  <td className='align-middle'>
                     {pokemon.nome}
                   </td>
-                  <td key={pokemon.tipo}>
+                  <td key={pokemon.tipo} className='align-middle'>
                     <p className={`${pokemon.tipo} text_center`}>{pokemon.tipo}</p>
                   </td>
-                  <td key={pokemon.pokedex}>
+                  <td key={pokemon.pokedex} className="text-center">
                     <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.pokedex}.png`} style={{ width: "100px" }} alt="" />
                   </td>
-                  <td>
+                  <td className="text-center">
                     <BtnDelete variant="danger" param1={`${pokemon._id}`} param2={`${pokemon.nome}`}/>
                     <Button href={`/editPokemon/${pokemon._id}`} className='m-3' variant="outline-warning"><BsPencilSquare /></Button>
                   </td>
