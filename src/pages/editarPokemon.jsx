@@ -1,42 +1,63 @@
 import React from "react";
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
 import NavBar from "../components/navBar";
 import { useState, useEffect } from 'react';
 import PokemonService from '../services/pokemon.service';
-import { Link, useParams } from "react-router-dom";
-import './editarPokemon.css'
+import {  useParams } from "react-router-dom";
+import BtnDelete from '../components/btnDelete'
+import './editarPokemon.css';
+
 
 
 export default function editarPokemon() {
 
   const { id } = useParams();
-  const [pokemonId, setPokemonId] = useState('');
+  const [pokemon, setPokemon] = useState([]);
+  const [tiposPokemon, setTiposPokemon] = useState([]);
+  const pokemonService = new PokemonService();
+  const [clicked, setClicked] = useState(false);
   const [nome, setNome] = useState('');
   const [tipo, setTipo] = useState('');
-  const [pokedex, setPokedex] = useState('Tipo não digitado')
-  const [tiposPokemon, setTiposPokemon] = useState([]);
-  const pokemonService = new PokemonService()
+  const [pokedex, setPokedex] = useState('');
+  const [statusEdit, setStatusEdit] = useState(0);
 
   useEffect(() => {
-    pokemonService.buscar(id).then((res) => setPokemonId(res.data));
+    pokemonService.buscar(id).then((res) => {
+      setNome(res.data.nome);
+      setPokedex(res.data.pokedex);
+      setTipo(res.data.tipo)
+      setPokemon(res.data)
+    })
     pokemonService.getTipos().then((res) => setTiposPokemon(res.data));
-  }, [])
+  }, []);
 
   async function handleSubmit(event) {
     event.preventDefault();
     const result = await pokemonService.edit(id, nome, tipo, pokedex);
-    console.log(result);
+    console.log(result)
+    setStatusEdit(result.status);
+
+    if (result.status == 200) {
+      setClicked(true);
+      setNome('');
+      setPokedex('');
+    } else {
+      setClicked(false);
+    }
+
   }
 
+  console.log(tipo)
+
   return (
-    <Container className="mt-3 pt-3" >
-      <Row>
+    <>
+      <Row className="altura_Maxima d-flex justify-content-between">
 
         <Col>
           <NavBar />
         </Col>
 
-        <Col xs={6}>
+        <Col xs={7} className="input_Edit">
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Nome do Pokemon</Form.Label>
@@ -45,10 +66,10 @@ export default function editarPokemon() {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Digite n N° da Pokedex</Form.Label>
-              <Form.Control required type="number" placeholder="N° da Pokedex" value={pokedex} onChange={(e) => setPokedex(e.target.value)} />
+              <Form.Control required type="text" placeholder="N° da Pokedex" value={pokedex} onChange={(e) => setPokedex(e.target.value)} />
             </Form.Group>
             <Form.Select defaultValue={tipo} required className='bg-light' aria-label="Default select example" onChange={(e) => setTipo(e.target.value)}>
-              <option value={""}>Selecione o tipo</option>
+              <option value="">Selecione o tipo</option>
               {tiposPokemon.map(tipo => {
                 return (
                   <option key={tipo} value={tipo}>{tipo}</option>
@@ -56,37 +77,36 @@ export default function editarPokemon() {
               })}
             </Form.Select>
 
-            <Button className='m-3' variant="danger" type="button">
-              <Link to={'/showPokemon'}>Cancelar</Link>
+            <Button className='m-3' variant="danger" type="button" href="/showPokemon">
+              Cancelar
             </Button>
             <Button className='m-3' variant="primary" type="submit">
-              Salvar Pokemon
+              Editar Pokemon
             </Button>
+            {clicked && <Alert key="success" variant="success">Pokemon editado com sucesso.</Alert>}
           </Form>
         </Col>
 
-        <Col className="exibindo_Pokemon pt-3">
+        <Col className="exibindo_Pókemon pt-3">
           
           <h4>Nome</h4>
-          <p>{pokemonId.nome}</p>
+          <p>{pokemon.nome}</p>
           <hr/ >
 
           <h4>Tipo</h4>
-          <p>{pokemonId.tipo}</p>
+          <p>{pokemon.tipo}</p>
           <hr/ >
 
           <h4>Imagem</h4>
-          <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId.pokedex}.png`} style={{ width: "100px", display: "block" }} alt="" />
-
-
-
-
-          <Button variant="outline-danger">Excluir</Button>
+          <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.pokedex}.png`} style={{ width: "100px", display: "block" }} alt="" />
+          <hr/ >
+          
+          <BtnDelete param1={`${pokemon._id}`} param2={`${pokemon.nome}`}/>
 
         </Col>
       </Row>
 
-    </Container>
+    </>
 
   )
 }

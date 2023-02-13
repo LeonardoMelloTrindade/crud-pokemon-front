@@ -3,8 +3,8 @@ import NavBar from '../components/navBar'
 
 export default function Menu() {
   return (
-    <div className=''>
-        <NavBar></NavBar>
+    <div style={{ height: '100%' }}>
+      <NavBar></NavBar>
     </div >
   )
 }

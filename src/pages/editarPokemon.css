@@ -1,6 +1,7 @@
-.exibindo_Pokemon {
+.exibindo_Pókemon {
     border: 1px solid red;
     background-color: bisque;
+    height: 430px;
 }
 
 .editando_Pokemon {
@@ -9,4 +10,8 @@
 
 .containerPrincipal {
     width: 100%;
+}
+
+.altura_Maxima {
+    height: 100%;
 }
