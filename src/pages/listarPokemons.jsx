@@ -37,6 +37,7 @@ export default function listarPokemons() {
           <tbody>
             {pokemons.map(pokemon => {
               return (
+
                 <tr key={pokemon.nome}>
                   <td className='align-middle'>
                     {pokemon.nome}
@@ -52,6 +53,7 @@ export default function listarPokemons() {
                     <Button href={`/editPokemon/${pokemon._id}`} className='m-3' variant="outline-warning"><BsPencilSquare /></Button>
                   </td>
                 </tr>
+                
               )
             })}
           </tbody>

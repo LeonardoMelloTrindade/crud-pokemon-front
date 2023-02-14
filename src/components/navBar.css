@@ -6,18 +6,17 @@
     background: linear-gradient(to top, rgb(0, 0, 0), rgb(190, 12, 12));
 }
 
-a {
+div > a {
     position: relative;
-    color: #fff;
     text-decoration: none;
     text-align: center;
 }
 
-a:visited {
+div > a:visited {
     color: #eee9c0;
 }
 
-a:before {
+div > a:before {
     content: "";
     position: absolute;
     width: 100%;
@@ -32,7 +31,7 @@ a:before {
     transition: all 0.3s ease-in-out 0s;
 }
 
-a:hover:before {
+div > a:hover:before {
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
