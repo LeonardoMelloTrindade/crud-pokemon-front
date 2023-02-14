@@ -34,9 +34,9 @@ export default function criarPokemon() {
 
     return (
 
-        <div className=' d-flex justify-content' style={{ height: '100%', margin: '0' }}>
+        <div className=' d-flex justify-content' style={{ height: '100%'}}>
 
-            <div className='nav flex-shrink-1' style={{ margin: '0' }}>
+            <div className='nav flex-shrink-1'>
                 <NavBar />
             </div>
 

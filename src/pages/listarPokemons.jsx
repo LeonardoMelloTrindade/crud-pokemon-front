@@ -35,6 +35,7 @@ export default function listarPokemons() {
             </tr>
           </thead>
           <tbody>
+            
             {pokemons.map(pokemon => {
               return (
 
@@ -53,9 +54,10 @@ export default function listarPokemons() {
                     <Button href={`/editPokemon/${pokemon._id}`} className='m-3' variant="outline-warning"><BsPencilSquare /></Button>
                   </td>
                 </tr>
-                
+
               )
             })}
+
           </tbody>
         </Table>
       </div>
