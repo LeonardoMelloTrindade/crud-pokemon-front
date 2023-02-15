@@ -1,100 +1,118 @@
+td {
+    width: 10%;
+}
+
 .text_center {
     text-align: center;
+}
+
+.bg {
+    background-color: bisque;
+}
+
+.showTipo {
+    letter-spacing: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.showNome {
+    font-size: x-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .Aço {
     background-color: #f4f4f4;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .Fogo {
     background-color: #cf1b1b95;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .Planta {
     background-color: #38d443;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .Elétrico {
     background-color: #ffd500;
-    padding: 10px 15px;
-    border-radius: 10px;
+    padding: 10px;
+    border-radius: 15px;
 }
 
 .Água,
 .Gelo {
     background-color: #428bac;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .Terra {
     background-color: #db9147;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .Pedra {
     background-color: #6d684d;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .Fada {
     background-color: #9f5dab;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .Veneno {
     background-color: #6b063e;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .Inseto {
     background-color: #ac7d3d;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .Dragão {
     background-color: #5977af;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .Psíquico {
     background-color: #c2469d;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .Voador {
     background-color: #a5989898;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .Lutador {
     background-color: #865143;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .Normal {
     background-color: #958f5c;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .Místico {
     background-color: #7c2288;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 15px;
 }

@@ -48,7 +48,7 @@ export default function editarPokemon() {
 
   return (
     <>
-      <Row className="altura_Maxima d-flex justify-content-between">
+      <Row className="altura_Maxima d-flex justify-content-between  bg">
 
         <Col>
           <NavBar />

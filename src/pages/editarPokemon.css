@@ -1,11 +1,10 @@
 .exibindo_Pókemon {
-    border: 1px solid red;
     background-color: bisque;
     height: 430px;
 }
 
-.editando_Pokemon {
-    border: 1px solid purple;
+.bg {
+    background-color: bisque;
 }
 
 .containerPrincipal {

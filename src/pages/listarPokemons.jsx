@@ -18,7 +18,7 @@ export default function listarPokemons() {
   }, [])
 
   return (
-    <div className='d-flex justify-content-between editando_Pokemon' style={{ height: '100%' }}>
+    <div className='d-flex justify-content-between' style={{ height: '100%' }}>
 
       <div className='pl-5 flex-shrink-1'>
         <NavBar />
@@ -40,10 +40,10 @@ export default function listarPokemons() {
               return (
 
                 <tr key={pokemon.nome}>
-                  <td className='align-middle'>
+                  <td className='align-middle showNome'>
                     {pokemon.nome}
                   </td>
-                  <td key={pokemon.tipo} className='align-middle'>
+                  <td key={pokemon.tipo} className='align-middle showTipo'>
                     <p className={`${pokemon.tipo} text_center`}>{pokemon.tipo}</p>
                   </td>
                   <td key={pokemon.pokedex} className="text-center">

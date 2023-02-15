@@ -14,7 +14,7 @@ const styles = {
   },
   rightContainer: {
     width: '100%',
-    backgroundImage: 'url(https://wallpapercave.com/wp/wp995451.jpg)',
+    backgroundImage: 'url(https://wallpaperaccess.com/full/8094964.gif)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
   },

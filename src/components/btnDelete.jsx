@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { Button, Modal, Alert } from 'react-bootstrap';
 import { BsTrash } from "react-icons/bs";
 import PokemonService from '../services/pokemon.service';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function btnDelete(props) {
 
     const id = props.param1;
     const [show, setShow] = useState(false);
-    const [clicked, setClicked] = useState(false);
     const pokemonService = new PokemonService();
-    const [deletado, setDeletado] = useState(false);
-
+    const notify = () => toast.error("Pokemon Deletado!");
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -19,7 +19,7 @@ export default function btnDelete(props) {
         const result = await pokemonService.delete(id);
         console.log(result);
         setShow(false);
-        setDeletado(true);
+        notify();
     };
 
     return (
@@ -40,23 +40,22 @@ export default function btnDelete(props) {
                     <Button variant="danger" onClick={deletarPokemon}>
                         Deletar
                     </Button>
-                    {/*clicked && <Alert key="danger" variant="danger">Pokemon deletado com sucesso.</Alert>*/}
                 </Modal.Footer>
             </Modal>
 
-            <Modal
-                size="sm"
-                show={deletado}
-                onHide={() => setDeletado(false)}
-                aria-labelledby="example-modal-sizes-title-sm"
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title id="example-modal-sizes-title-sm">
-                        Pokemon Deletado
-                    </Modal.Title>
-                </Modal.Header>
-                {/*<Modal.Body>...</Modal.Body>*/}
-            </Modal>
+            <ToastContainer
+                position="bottom-right"
+                autoClose={1000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
+
         </>
     );
 }
