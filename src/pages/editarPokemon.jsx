@@ -1,9 +1,9 @@
 import React from "react";
-import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
+import { Form, Button, Row, Col, Alert } from "react-bootstrap";
 import NavBar from "../components/navBar";
 import { useState, useEffect } from 'react';
 import PokemonService from '../services/pokemon.service';
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import BtnDelete from '../components/btnDelete'
 import './editarPokemon.css';
 

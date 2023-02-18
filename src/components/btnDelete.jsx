@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Modal, Alert } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 import { BsTrash } from "react-icons/bs";
 import PokemonService from '../services/pokemon.service';
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,6 +11,7 @@ export default function btnDelete(props) {
     const [show, setShow] = useState(false);
     const pokemonService = new PokemonService();
     const notify = () => toast.error("Pokemon Deletado!");
+    
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 

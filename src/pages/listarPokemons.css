@@ -17,7 +17,8 @@ td {
 
 .showNome {
     font-size: x-large;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Pokemon Solid', sans-serif;
+    letter-spacing: 2px;
 }
 
 .Aço {
