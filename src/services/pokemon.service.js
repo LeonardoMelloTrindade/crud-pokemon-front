@@ -17,8 +17,13 @@ export default class PokemonService {
     });
   }
 
-  async get() {
-    return axios.get('http://localhost:3000/pokemon');
+  async get(page, limit) {
+    return axios.get(`http://localhost:3000/pokemon`, {
+      params:{
+        page: page,
+        limit: limit
+      }
+    });
   }
 
   async getTipos() {

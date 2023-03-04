@@ -11,11 +11,21 @@ import './editarPokemon.css';
 export default function listarPokemons() {
 
   const [pokemons, setPokemons] = useState([])
+  const [pokemonsTotal, setPokemonsTotal] = useState([])
+  const [currentPage, setCurrentPage] = useState(1);
+  const [limit, setLimit] = useState(4);
   const pokemonService = new PokemonService()
 
   useEffect(() => {
-    pokemonService.get().then((res) => setPokemons(res.data))
-  }, [])
+    pokemonService.get(currentPage, limit).then((res) => {
+      console.log(currentPage)
+      console.log(res.data.data)
+      setPokemons(res.data.data)
+    })
+    pokemonService.get().then((res) => {
+      setPokemonsTotal(res.data.data)
+    })
+  }, [currentPage])
 
   return (
     <div className='d-flex justify-content-between' style={{ height: '100%' }}>
@@ -35,7 +45,7 @@ export default function listarPokemons() {
             </tr>
           </thead>
           <tbody>
-            
+
             {pokemons.map(pokemon => {
               return (
 
@@ -50,7 +60,7 @@ export default function listarPokemons() {
                     <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.pokedex}.png`} style={{ width: "100px" }} alt="" />
                   </td>
                   <td className="text-center">
-                    <BtnDelete variant="danger" param1={`${pokemon._id}`} param2={`${pokemon.nome}`}/>
+                    <BtnDelete variant="danger" param1={`${pokemon._id}`} param2={`${pokemon.nome}`} />
                     <Button href={`/editPokemon/${pokemon._id}`} className='m-3' variant="outline-warning"><BsPencilSquare /></Button>
                   </td>
                 </tr>
@@ -60,6 +70,22 @@ export default function listarPokemons() {
 
           </tbody>
         </Table>
+        <div className="pagination">
+          <Button
+            variant="primary"
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage(currentPage - 1)}
+          >
+            Anterior
+          </Button>
+          <Button
+            variant="primary"
+            disabled={currentPage === Math.ceil(pokemonsTotal.length / limit)}
+            onClick={() => setCurrentPage(currentPage + 1)}
+          >
+            Próximo
+          </Button>
+        </div>
       </div>
     </div>
   );
