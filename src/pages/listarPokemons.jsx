@@ -34,7 +34,7 @@ export default function listarPokemons() {
         <NavBar />
       </div>
 
-      <div className='d-flex p-2 w-100 align-items-center' style={{ height: '100%' }}>
+      <div className='p-2 w-100' style={{ height: '100%' }}>
         <Table striped bordered hover>
           <thead>
             <tr className='align-items-center'>
@@ -70,11 +70,12 @@ export default function listarPokemons() {
 
           </tbody>
         </Table>
-        <div className="pagination">
+        <div className="d-flex pagination justify-content-center">
           <Button
             variant="primary"
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(currentPage - 1)}
+            className="m-2"
           >
             Anterior
           </Button>
@@ -82,6 +83,7 @@ export default function listarPokemons() {
             variant="primary"
             disabled={currentPage === Math.ceil(pokemonsTotal.length / limit)}
             onClick={() => setCurrentPage(currentPage + 1)}
+            className="m-2"
           >
             Próximo
           </Button>
