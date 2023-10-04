@@ -11,21 +11,15 @@ import './editarPokemon.css';
 export default function listarPokemons() {
 
   const [pokemons, setPokemons] = useState([])
-  const [pokemonsTotal, setPokemonsTotal] = useState([])
-  const [currentPage, setCurrentPage] = useState(1);
-  const [limit, setLimit] = useState(4);
   const pokemonService = new PokemonService()
 
   useEffect(() => {
-    pokemonService.get(currentPage, limit).then((res) => {
-      console.log(currentPage)
-      console.log(res.data.data)
-      setPokemons(res.data.data)
+    pokemonService.listar().then((res) => {
+      console.log(res.data)
+      setPokemons(res.data)
     })
-    pokemonService.get().then((res) => {
-      setPokemonsTotal(res.data.data)
-    })
-  }, [currentPage])
+    
+  }, [])
 
   return (
     <div className='d-flex justify-content-between' style={{ height: '100%' }}>
@@ -70,24 +64,7 @@ export default function listarPokemons() {
 
           </tbody>
         </Table>
-        <div className="d-flex pagination justify-content-center">
-          <Button
-            variant="primary"
-            disabled={currentPage === 1}
-            onClick={() => setCurrentPage(currentPage - 1)}
-            className="m-2"
-          >
-            Anterior
-          </Button>
-          <Button
-            variant="primary"
-            disabled={currentPage === Math.ceil(pokemonsTotal.length / limit)}
-            onClick={() => setCurrentPage(currentPage + 1)}
-            className="m-2"
-          >
-            Próximo
-          </Button>
-        </div>
+        
       </div>
     </div>
   );
