@@ -6,6 +6,7 @@ import PokemonService from "../services/pokemon.service";
 import Tipos from "../data/tipos";
 import Pokemons from "../data/pokemons";
 import PokeApi from "../services/poke-api.service";
+import "./criarPokemon.css";
 
 export default function criarPokemon() {
   const [nome, setNome] = useState("");
@@ -47,8 +48,14 @@ export default function criarPokemon() {
   return (
     <>
       <NavBar />
-      <div className=" d-flex justify-content" style={{ height: "100%" }}>
-        <div className="p-2 w-100">
+      <div className="d-flex justify-content-center p-3">
+        <h1>Cadastre o Pokemon aqui.</h1>
+      </div>
+      <main
+        className=" d-flex justify-content-center"
+        style={{ height: "100%" }}
+      >
+        <div className="p-5 container-input">
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Nome do Pokemon</Form.Label>
@@ -96,7 +103,7 @@ export default function criarPokemon() {
             )}
           </Form>
         </div>
-      </div>
+      </main>
     </>
   );
 }

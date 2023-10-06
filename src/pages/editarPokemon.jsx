@@ -58,9 +58,11 @@ export default function editarPokemon() {
   return (
     <>
       <NavBar />
-      <Row className="altura_Maxima d-flex justify-content-between  bg">
-
-        <Col xs={7} className="input_Edit">
+      <main className="containerPrincipal">
+        <div className="pt-2 bloco">
+        <h1 >Altere o(a) {pokemon.nome}</h1>
+        </div>
+        <div className="input_Edit">
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Nome do Pokemon</Form.Label>
@@ -99,7 +101,7 @@ export default function editarPokemon() {
             })}
           </Form.Select>
 
-            <Button className='m-3' variant="danger" type="button" href="/showPokemon">
+            <Button className='m-3' variant="danger" type="button" href="/">
               Cancelar
             </Button>
             <Button className='m-3' variant="primary" type="submit">
@@ -107,26 +109,26 @@ export default function editarPokemon() {
             </Button>
             {clicked && <Alert key="success" variant="success">Pokemon editado com sucesso.</Alert>}
           </Form>
-        </Col>
+        </div>
 
-        <Col className="exibindo_Pókemon pt-3">
+        <div className="exibindo_Pókemon pt-3 bloco">
           
-          <h4>Nome</h4>
-          <p>{pokemon.nome}</p>
+          <h4 className="text-center">Nome</h4>
+          <p className="text-center">{pokemon.nome}</p>
           <hr/ >
 
-          <h4>Tipo</h4>
-          <p>{pokemon.tipo}</p>
+          <h4 className="text-center">Tipo</h4>
+          <p className="text-center">{pokemon.tipo}</p>
           <hr/ >
 
-          <h4>Imagem</h4>
+          <h4 className="text-center">Imagem</h4>
           <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.pokedex}.png`} style={{ width: "100px", display: "block" }} alt="" />
           <hr/ >
-          
-          <BtnDelete param1={`${pokemon._id}`} param2={`${pokemon.nome}`}/>
-
-        </Col>
-      </Row>
+          <div className="d-flex justify-content-center">
+          <BtnDelete id={`${pokemon._id}`} nome={`${pokemon.nome}`} />
+          </div>
+        </div>
+      </main>
 
     </>
 

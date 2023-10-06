@@ -5,12 +5,10 @@ import PokemonService from '../services/pokemon.service';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function btnDelete(props) {
-
-    const id = props.param1;
+export default function btnDelete({id, nome}) {
     const [show, setShow] = useState(false);
     const pokemonService = new PokemonService();
-    const notify = () => toast.error("Pokemon Deletado!");
+    const notify = () => toast.error("Deletando Pokemon!");
     
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -22,7 +20,7 @@ export default function btnDelete(props) {
         notify();
         setTimeout(() => {
             window.location.href = "/";
-          }, 1000);
+          }, 1500);
     };
 
     return (
@@ -33,7 +31,7 @@ export default function btnDelete(props) {
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Deletando {props.param2}</Modal.Title>
+                    <Modal.Title>Deletando {nome}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>Tem certeza que vai excluir esse Pokemon?</Modal.Body>
                 <Modal.Footer>

@@ -1,16 +1,36 @@
 .exibindo_Pókemon {
     background-color: bisque;
-    height: 430px;
+    width: 20%;
+    border: 5px double black;
+    padding: 5px;
 }
 
-.bg {
-    background-color: bisque;
+
+.bloco {
+    display: block;
+}
+
+.input_Edit {
+    width: 50%;
+    position: relative;
+    bottom: 50px;
+}
+
+.input_Edit, .bloco {
+    position: relative;
+    bottom: 50px;
 }
 
 .containerPrincipal {
     width: 100%;
+    height: 100%;
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
 }
 
-.altura_Maxima {
-    height: 100%;
+img, btn-delete {
+    margin: 0 auto;
 }

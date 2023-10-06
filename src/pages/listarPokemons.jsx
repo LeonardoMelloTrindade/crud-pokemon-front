@@ -32,11 +32,10 @@ export default function ListarPokemons() {
               </section>
             </div>
       ) : (
-      <div
-        className="d-flex justify-content-between"
-        style={{ height: "100%" }}
-      >
-        <div className="p-2 w-100" style={{ height: "100%" }}>
+      <main
+        className="d-flex justify-content-center" style={{ height: "100%" }}
+        >
+        <div className="p-2 cotainer-principal">
           
             <Table striped bordered hover>
               <thead>
@@ -67,8 +66,8 @@ export default function ListarPokemons() {
                       <td className="text-center">
                         <BtnDelete
                           variant="danger"
-                          param1={`${pokemon._id}`}
-                          param2={`${pokemon.nome}`}
+                          id={`${pokemon._id}`}
+                          nome={`${pokemon.nome}`}
                         />
                         <Button
                           href={`/editPokemon/${pokemon._id}`}
@@ -84,7 +83,7 @@ export default function ListarPokemons() {
               </tbody>
             </Table>
         </div>
-      </div>
+      </main>
      )}
     </>
   );

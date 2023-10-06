@@ -2,6 +2,15 @@ td {
     width: 10%;
 }
 
+.cotainer-principal {
+    width: 80%;
+    height: 100%;
+}
+
+main {
+    width: 100%;
+}
+
 .text_center {
     text-align: center;
 }
@@ -19,7 +28,7 @@ td {
     font-size: x-large;
     font-family: 'Pokemon Solid', sans-serif;
     letter-spacing: 2px;
-}
+}                                                                                                                                                                               
 
 .Aço {
     background-color: #f4f4f4;
