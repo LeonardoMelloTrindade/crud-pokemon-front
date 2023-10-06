@@ -4,7 +4,6 @@ import React from 'react';
 import CriarPokemon from './pages/criarPokemon';
 import ListarPokemons from './pages/listarPokemons';
 import EditarPokemon from './pages/editarPokemon';
-import Menu from './pages/menu';
 
 function App() {
 
@@ -14,9 +13,8 @@ function App() {
       <Router>
 
         <Routes>
-          <Route path='/' element={<Menu />} />
+          <Route path='/' element={<ListarPokemons />} />
           <Route path='/createPokemon' element={<CriarPokemon />} />
-          <Route path='/showPokemon' element={<ListarPokemons />} /> 
           <Route path='/editPokemon/:id' element={<EditarPokemon/>}/>
         </Routes>
 

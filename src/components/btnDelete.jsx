@@ -15,12 +15,14 @@ export default function btnDelete(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-
     const deletarPokemon = async () => {
         const result = await pokemonService.delete(id);
         console.log(result);
         setShow(false);
         notify();
+        setTimeout(() => {
+            window.location.href = "/";
+          }, 1000);
     };
 
     return (
