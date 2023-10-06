@@ -12,8 +12,28 @@ import './editarPokemon.css';
 export default function editarPokemon() {
 
   const { id } = useParams();
+  console.log(id)
   const [pokemon, setPokemon] = useState([]);
-  const [tiposPokemon, setTiposPokemon] = useState([]);
+  const [tiposPokemon, setTiposPokemon] = useState([
+    "Normal",
+    "Fogo",
+    "Água",
+    "Planta",
+    "Elétrico",
+    "Gelo",
+    "Lutador",
+    "Voador",
+    "Venenoso",
+    "Terra",
+    "Pedra",
+    "Inseto",
+    "Fantasma",
+    "Aço",
+    "Psíquico",
+    "Noturno",
+    "Dragão",
+    "Fada",
+  ]);
   const pokemonService = new PokemonService();
   const [clicked, setClicked] = useState(false);
   const [nome, setNome] = useState('');
@@ -28,19 +48,21 @@ export default function editarPokemon() {
       setTipo(res.data.tipo)
       setPokemon(res.data)
     })
-    pokemonService.getTipos().then((res) => setTiposPokemon(res.data));
   }, []);
 
   async function handleSubmit(event) {
     event.preventDefault();
     const result = await pokemonService.edit(id, nome, tipo, pokedex);
-    console.log(result)
     setStatusEdit(result.status);
 
     if (result.status == 200) {
       setClicked(true);
       setNome('');
       setPokedex('');
+      setTimeout(() => {
+        window.location.href = "/showPokemon";
+      }, 700);
+    
     } else {
       setClicked(false);
     }

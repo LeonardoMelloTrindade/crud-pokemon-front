@@ -24,5 +24,9 @@ export default class PokemonService {
   async delete(id) {
     return axios.delete(`http://localhost:3000/pokemon/${id}`);
   }
+
+  async buscar(id) {
+    return axios.get(`http://localhost:3000/pokemon/${id}`);
+  }
 }
 
