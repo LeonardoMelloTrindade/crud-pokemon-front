@@ -6,7 +6,8 @@ import { BsPencilSquare } from "react-icons/bs";
 import BtnDelete from "../components/btnDelete";
 import "./listarPokemons.css";
 import "./editarPokemon.css";
-import '../data/tiposColor.css'
+import "../data/tiposColor.css";
+import { Link } from "react-router-dom";
 
 export default function ListarPokemons() {
   const [pokemons, setPokemons] = useState([]);
@@ -25,13 +26,11 @@ export default function ListarPokemons() {
         <div className="d-flex justify-content-center flex-column">
           <h1 className="text-center mt-3">Nenhum pokemon salvo.</h1>
           <section className="d-flex justify-content-center">
-            <Button
-              href="/crud-pokemon-front/createPokemon"
-              variant="primary"
-              className="mt-3 btn-add-pokemon"
-            >
-              Adiocionar um novo pokemon
-            </Button>
+            <Link to={"/crud-pokemon-front/createPokemon"}>
+              <Button variant="primary" className="mt-3 btn-add-pokemon">
+                Adiocionar um novo pokemon
+              </Button>
+            </Link>
           </section>
         </div>
       ) : (
@@ -58,7 +57,9 @@ export default function ListarPokemons() {
                     <tr key={pokemon.nome}>
                       <td className="align-middle showNome">{pokemon.nome}</td>
                       <td key={pokemon.tipo} className="align-middle showTipo">
-                        <p className={`${pokemon.tipo} text-center config-font`}>
+                        <p
+                          className={`${pokemon.tipo} text-center config-font`}
+                        >
                           {pokemon.tipo}
                         </p>
                       </td>
@@ -75,13 +76,15 @@ export default function ListarPokemons() {
                           pokedex={`${pokemon.pokedex}`}
                           nome={`${pokemon.nome}`}
                         />
+                        <Link to={`/crud-pokemon-front/editPokemon/${pokemon.pokedex}`}>
                         <Button
-                          href={`/crud-pokemon-front/editPokemon/${pokemon.pokedex}`}
                           className="m-3"
                           variant="outline-warning"
                         >
                           <BsPencilSquare />
                         </Button>
+
+                        </Link>
                       </td>
                     </tr>
                   );

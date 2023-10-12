@@ -7,6 +7,7 @@ import Tipos from "../data/tipos";
 import Pokemons from "../data/pokemons";
 import PokeApi from "../services/poke-api.service";
 import "./criarPokemon.css";
+import { Link } from "react-router-dom";
 
 export default function criarPokemon() {
   const [nome, setNome] = useState("");

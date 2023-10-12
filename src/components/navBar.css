@@ -1,11 +1,12 @@
-.link_personalizado {
+.links-nav {
+    text-decoration: none;
     color: beige;
     font-size: 2em;
     font-family: 'Pokemon Solid', sans-serif;
     letter-spacing: 2px;
 }
 
-.link_personalizado:hover {
+.links-nav:hover {
     color: bisque;
     letter-spacing: 4px;
     transition: 0.2s;

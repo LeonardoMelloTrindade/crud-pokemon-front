@@ -3,24 +3,27 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./navBar.css";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Container>
         <Nav.Item>
-          <Nav.Link href="/crud-pokemon-front" className="link_personalizado">
+          <Link
+            to={"/crud-pokemon-front"}
+            className="links-nav link_personalizado"
+          >
             Pokemons
-          </Nav.Link>
+          </Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link
-            eventKey="link-1"
-            href="/crud-pokemon-front/createPokemon"
-            className="link_personalizado"
+          <Link
+            to={"/crud-pokemon-front/createPokemon"}
+            className="links-nav link_personalizado"
           >
             Criar Pokemon
-          </Nav.Link>
+          </Link>
         </Nav.Item>
       </Container>
     </Navbar>

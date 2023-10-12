@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import BtnDelete from "../components/btnDelete";
 import Tipos from "../data/tipos";
 import Pokemons from "../data/pokemons";
+import { Link } from "react-router-dom";
 import "./editarPokemon.css";
 
 export default function editarPokemon() {
@@ -35,7 +36,7 @@ export default function editarPokemon() {
 
       const result = pokemonService.put(id, nome, tipo, pokemonId.id);
       console.log(result);
-      
+
       setClicked(true);
       setTimeout(() => {
         window.location.href = "/crud-pokemon-front";
@@ -91,10 +92,12 @@ export default function editarPokemon() {
               })}
             </Form.Select>
 
-            <Button className="m-3" variant="danger" type="button" href="/crud-pokemon-front">
-              Cancelar
-            </Button>
-            <Button className="m-3" variant="primary" type="submit">
+            <Link to={"/crud-pokemon-front"}>
+              <Button className="btn-margin" variant="danger" type="button">
+                Cancelar
+              </Button>
+            </Link>
+            <Button className="btn-margin" variant="primary" type="submit">
               Editar Pokemon
             </Button>
             {clicked && (

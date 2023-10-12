@@ -1,6 +1,6 @@
 {
   "homepage": "https://LeonardoMellotrindade.github.io/crud-pokemon-front",
-  "name": "vite-project",
+  "name": "pokedex",
   "private": true,
   "version": "0.0.0",
   "type": "module",
