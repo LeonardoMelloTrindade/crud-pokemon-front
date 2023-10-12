@@ -76,7 +76,7 @@ export default function ListarPokemons() {
                           nome={`${pokemon.nome}`}
                         />
                         <Button
-                          href={`/editPokemon/${pokemon.pokedex}`}
+                          href={`/crud-pokemon-front/editPokemon/${pokemon.pokedex}`}
                           className="m-3"
                           variant="outline-warning"
                         >

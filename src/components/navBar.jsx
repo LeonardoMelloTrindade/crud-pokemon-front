@@ -9,14 +9,14 @@ export default function NavBar() {
     <Navbar bg="dark" data-bs-theme="dark">
       <Container>
         <Nav.Item>
-          <Nav.Link href="/" className="link_personalizado">
+          <Nav.Link href="/crud-pokemon-front" className="link_personalizado">
             Pokemons
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link
             eventKey="link-1"
-            href="/createPokemon"
+            href="/crud-pokemon-front/createPokemon"
             className="link_personalizado"
           >
             Criar Pokemon
