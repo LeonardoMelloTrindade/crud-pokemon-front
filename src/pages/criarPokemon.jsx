@@ -11,38 +11,30 @@ import "./criarPokemon.css";
 export default function criarPokemon() {
   const [nome, setNome] = useState("");
   const [tipo, setTipo] = useState("");
-  const [pokedex, setPokedex] = useState("");
   const pokemonService = new PokemonService();
   const pokeApi = new PokeApi();
   const [clicked, setClicked] = useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
-
-    try {
-      const pokemon = await pokeApi.getPokemon(nome.toLowerCase());
-
-      if (pokemon.id) {
-        const result = await pokemonService.create(nome, tipo, pokemon.id);
-        console.log(result);
-        setPokedex("");
-        setNome("");
-        setPokedex("");
-
-        if (result.status === 201) {
-          setClicked(true);
-          setTimeout(() => {
-            window.location.href = "/";
-          }, 1000);
-        } else {
+    for (const [index, pokemonLoop] of Pokemons.entries()) {
+      if (pokemonLoop === nome) {
+        const newPokemon = pokemonService.post(
+          index + 1, // pokedex
+          nome,
+          tipo,
+        );
+        setClicked(true);
+        console.log("Novo Pokémon criado:", newPokemon);
+        setTimeout(() => {
+          setNome("");
+          setTipo("");
           setClicked(false);
-        }
-      } else {
-        console.error("Não foi possível obter o ID do Pokémon.");
+        }, 2500);
       }
-    } catch (error) {
-      console.error("Ocorreu um erro ao criar o Pokémon:", error);
     }
+
+    await pokeApi.getPokemon(nome.toLowerCase());
   }
 
   return (
@@ -60,7 +52,7 @@ export default function criarPokemon() {
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Nome do Pokemon</Form.Label>
               <Form.Select
-                defaultValue={nome}
+                value={nome}
                 required
                 className="bg-light"
                 aria-label="Default select example"
@@ -78,7 +70,7 @@ export default function criarPokemon() {
             </Form.Group>
             <Form.Label>Tipo do Pokemon</Form.Label>
             <Form.Select
-              defaultValue={tipo}
+              value={tipo}
               required
               className="bg-light"
               aria-label="Default select example"

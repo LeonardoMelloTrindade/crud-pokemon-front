@@ -1,4 +1,4 @@
-const pokemonsKanto = [
+const pokemons = [
     "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard",
     "Squirtle", "Wartortle", "Blastoise", "Caterpie", "Metapod", "Butterfree",
     "Weedle", "Kakuna", "Beedrill", "Pidgey", "Pidgeotto", "Pidgeot",
@@ -25,6 +25,4 @@ const pokemonsKanto = [
     "Omastar", "Kabuto", "Kabutops", "Aerodactyl", "Snorlax", "Articuno",
     "Zapdos", "Moltres", "Dratini", "Dragonair", "Dragonite", "Mewtwo", "Mew"
   ];
-
-const pokemons = pokemonsKanto.sort();
 export default pokemons

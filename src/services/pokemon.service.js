@@ -1,32 +1,63 @@
-import axios from 'axios';
-
 export default class PokemonService {
-  async create(nome, tipo, num) {
-    return axios.post('http://localhost:3000/pokemon', {
+  post(pokedex, nome, tipo) {
+    const pokemons = JSON.parse(localStorage.getItem('pokemons')) || [];
+
+    const newPokemon = {
+      pokedex: pokedex,
       nome: nome,
-      tipo: tipo,
-      pokedex: num
-    });
+      tipo: tipo
+    };
+
+    pokemons.push(newPokemon);
+    localStorage.setItem('pokemons', JSON.stringify(pokemons));
+    return newPokemon;
   }
 
-  async edit(id, nome, tipo, num) {
-    return axios.put(`http://localhost:3000/pokemon/${id}`, {
-      nome: nome,
-      tipo: tipo,
-      pokedex: num
-    });
+  put(pokedex, nome, tipo, novoPokedex) {
+    const pokemons = JSON.parse(localStorage.getItem('pokemons')) || [];
+    console.log(pokedex)
+    const index = pokemons.findIndex((pokemon) => pokemon.pokedex == pokedex);
+    console.log(index)
+
+    if (index !== -1) {
+      pokemons[index].nome = nome;
+      pokemons[index].tipo = tipo;
+      pokemons[index].pokedex = novoPokedex;
+
+      localStorage.setItem('pokemons', JSON.stringify(pokemons));
+
+      return pokemons[index];
+    }
+
+    return null; 
   }
 
-  async listar() {
-    return axios.get(`http://localhost:3000/pokemon`);
+  get() {
+    return JSON.parse(localStorage.getItem('pokemons')) || [];
   }
 
-  async delete(id) {
-    return axios.delete(`http://localhost:3000/pokemon/${id}`);
-  }
+  delete(pokedex) {
+    const pokemons = JSON.parse(localStorage.getItem('pokemons')) || [];
+    const index = pokemons.findIndex((pokemon) => pokemon.pokedex == pokedex);
 
-  async buscar(id) {
-    return axios.get(`http://localhost:3000/pokemon/${id}`);
+    if (index !== -1) {
+      pokemons.splice(index, 1);
+      localStorage.removeItem('pokemons');
+      localStorage.setItem('pokemons', JSON.stringify(pokemons));
+  
+      return true;
+    }
+  
+    return false; 
+  }
+  
+  
+
+  search(pokedex) {
+    const pokemons = JSON.parse(localStorage.getItem('pokemons')) || [];
+    const foundPokemon = pokemons.find((pokemon) => pokemon.pokedex == pokedex);
+    return foundPokemon || null;
   }
 }
+
 

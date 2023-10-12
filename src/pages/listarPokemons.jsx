@@ -6,16 +6,15 @@ import { BsPencilSquare } from "react-icons/bs";
 import BtnDelete from "../components/btnDelete";
 import "./listarPokemons.css";
 import "./editarPokemon.css";
+import '../data/tiposColor.css'
 
 export default function ListarPokemons() {
   const [pokemons, setPokemons] = useState([]);
   const pokemonService = new PokemonService();
 
   useEffect(() => {
-    pokemonService.listar().then((res) => {
-      console.log(res.data);
-      setPokemons(res.data);
-    });
+    const pokemonsFromLocalStorage = pokemonService.get();
+    setPokemons(pokemonsFromLocalStorage);
   }, []);
 
   return (
@@ -23,20 +22,27 @@ export default function ListarPokemons() {
       <NavBar />
 
       {pokemons.length === 0 ? (
-            <div className="d-flex justify-content-center flex-column">
-              <h1 className="text-center mt-3">Nenhum pokemon salvo.</h1>
-              <section className="d-flex justify-content-center">
-              <Button href="/createPokemon" variant="primary" className="mt-3 btn-add-pokemon">
-                Adiocionar um novo pokemon
-              </Button>
-              </section>
-            </div>
+        <div className="d-flex justify-content-center flex-column">
+          <h1 className="text-center mt-3">Nenhum pokemon salvo.</h1>
+          <section className="d-flex justify-content-center">
+            <Button
+              href="/createPokemon"
+              variant="primary"
+              className="mt-3 btn-add-pokemon"
+            >
+              Adiocionar um novo pokemon
+            </Button>
+          </section>
+        </div>
       ) : (
-      <main
-        className="d-flex justify-content-center" style={{ height: "100%" }}
+        <main
+          className="d-flex justify-content-center"
+          style={{ height: "100%" }}
         >
-        <div className="p-2 cotainer-principal">
-          
+          <div className="p-2 cotainer-principal">
+            <section className="titulo d-flex justify-content-center">
+              <h1>Meus Pokemons</h1>
+            </section>
             <Table striped bordered hover>
               <thead>
                 <tr className="align-items-center">
@@ -52,7 +58,7 @@ export default function ListarPokemons() {
                     <tr key={pokemon.nome}>
                       <td className="align-middle showNome">{pokemon.nome}</td>
                       <td key={pokemon.tipo} className="align-middle showTipo">
-                        <p className={`${pokemon.tipo} text_center`}>
+                        <p className={`${pokemon.tipo} text-center config-font`}>
                           {pokemon.tipo}
                         </p>
                       </td>
@@ -66,11 +72,11 @@ export default function ListarPokemons() {
                       <td className="text-center">
                         <BtnDelete
                           variant="danger"
-                          id={`${pokemon._id}`}
+                          pokedex={`${pokemon.pokedex}`}
                           nome={`${pokemon.nome}`}
                         />
                         <Button
-                          href={`/editPokemon/${pokemon._id}`}
+                          href={`/editPokemon/${pokemon.pokedex}`}
                           className="m-3"
                           variant="outline-warning"
                         >
@@ -82,9 +88,9 @@ export default function ListarPokemons() {
                 })}
               </tbody>
             </Table>
-        </div>
-      </main>
-     )}
+          </div>
+        </main>
+      )}
     </>
   );
 }

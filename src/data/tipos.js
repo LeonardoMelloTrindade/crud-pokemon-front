@@ -7,7 +7,7 @@ const tipos = [
     "Gelo",
     "Lutador",
     "Voador",
-    "Venenoso",
+    "Veneno",
     "Terra",
     "Pedra",
     "Inseto",
@@ -17,6 +17,7 @@ const tipos = [
     "Noturno",
     "Dragão",
     "Fada",
+    "Místico"
 ]
 
 export default tipos;
