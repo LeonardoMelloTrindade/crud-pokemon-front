@@ -13,9 +13,9 @@ function App() {
       <Router>
  
         <Routes>
-          <Route path='/crud-pokemon-front' element={<ListarPokemons />} />
-          <Route path='/crud-pokemon-front/createPokemon' element={<CriarPokemon />} />
-          <Route path='/crud-pokemon-front/editPokemon/:id' element={<EditarPokemon/>}/>
+          <Route path='/crudPokemonFront' element={<ListarPokemons />} />
+          <Route path='/crudPokemonFront/createPokemon' element={<CriarPokemon />} />
+          <Route path='/crudPokemonFront/editPokemon/:id' element={<EditarPokemon/>}/>
         </Routes>
 
       </Router>

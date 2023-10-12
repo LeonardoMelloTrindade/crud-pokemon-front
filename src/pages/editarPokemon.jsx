@@ -39,7 +39,7 @@ export default function editarPokemon() {
 
       setClicked(true);
       setTimeout(() => {
-        window.location.href = "/crud-pokemon-front";
+        window.location.href = "/crudPokemonFront";
       }, 1000);
     } catch (error) {
       console.error("Ocorreu um erro ao criar o Pokémon:", error);
@@ -92,12 +92,12 @@ export default function editarPokemon() {
               })}
             </Form.Select>
 
-            <Link to={"/crud-pokemon-front"}>
+            <Link to={"/crudPokemonFront"}>
               <Button className="btn-margin" variant="danger" type="button">
                 Cancelar
               </Button>
             </Link>
-            <Button className="btn-margin" variant="primary" type="submit">
+            <Button className="btn-margin" variant="success" type="submit">
               Editar Pokemon
             </Button>
             {clicked && (

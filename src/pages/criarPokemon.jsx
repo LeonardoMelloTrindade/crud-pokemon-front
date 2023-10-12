@@ -84,7 +84,7 @@ export default function criarPokemon() {
                 );
               })}
             </Form.Select>
-            <Button className="m-3" variant="primary" type="submit">
+            <Button className="btn-criar" variant="success" type="submit">
               Criar Pokemon
             </Button>
             {clicked && (

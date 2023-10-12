@@ -18,7 +18,7 @@ export default function btnDelete({ pokedex, nome }) {
     setShow(false);
     notify();
     setTimeout(() => {
-      window.location.href = "/";
+      window.location.href = "/crudPokemonFront";
     }, 1500);
   }
 

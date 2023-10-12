@@ -24,9 +24,9 @@ export default function ListarPokemons() {
 
       {pokemons.length === 0 ? (
         <div className="d-flex justify-content-center flex-column">
-          <h1 className="text-center mt-3">Nenhum pokemon salvo.</h1>
+          <h1 className="text-center">Nenhum pokemon salvo.</h1>
           <section className="d-flex justify-content-center">
-            <Link to={"/crud-pokemon-front/createPokemon"}>
+            <Link to={"/crudPokemonFront/createPokemon"}>
               <Button variant="primary" className="mt-3 btn-add-pokemon">
                 Adiocionar um novo pokemon
               </Button>
@@ -76,7 +76,7 @@ export default function ListarPokemons() {
                           pokedex={`${pokemon.pokedex}`}
                           nome={`${pokemon.nome}`}
                         />
-                        <Link to={`/crud-pokemon-front/editPokemon/${pokemon.pokedex}`}>
+                        <Link to={`/crudPokemonFront/editPokemon/${pokemon.pokedex}`}>
                         <Button
                           className="m-3"
                           variant="outline-warning"

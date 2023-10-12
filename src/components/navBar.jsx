@@ -11,7 +11,7 @@ export default function NavBar() {
       <Container>
         <Nav.Item>
           <Link
-            to={"/crud-pokemon-front"}
+            to={"/crudPokemonFront"}
             className="links-nav link_personalizado"
           >
             Pokemons
@@ -19,7 +19,7 @@ export default function NavBar() {
         </Nav.Item>
         <Nav.Item>
           <Link
-            to={"/crud-pokemon-front/createPokemon"}
+            to={"/crudPokemonFront/createPokemon"}
             className="links-nav link_personalizado"
           >
             Criar Pokemon
