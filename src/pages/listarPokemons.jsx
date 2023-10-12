@@ -26,7 +26,7 @@ export default function ListarPokemons() {
           <h1 className="text-center mt-3">Nenhum pokemon salvo.</h1>
           <section className="d-flex justify-content-center">
             <Button
-              href="/createPokemon"
+              href="/crud-pokemon-front/createPokemon"
               variant="primary"
               className="mt-3 btn-add-pokemon"
             >

@@ -49,13 +49,12 @@ export default function criarPokemon() {
       >
         <div className="p-5 container-input">
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3">
               <Form.Label>Nome do Pokemon</Form.Label>
               <Form.Select
                 value={nome}
                 required
                 className="bg-light"
-                aria-label="Default select example"
                 onChange={(e) => setNome(e.target.value)}
               >
                 <option value={""}>Escolha o Pokemon</option>
@@ -73,7 +72,6 @@ export default function criarPokemon() {
               value={tipo}
               required
               className="bg-light"
-              aria-label="Default select example"
               onChange={(e) => setTipo(e.target.value)}
             >
               <option value={""}>Selecione o tipo</option>
