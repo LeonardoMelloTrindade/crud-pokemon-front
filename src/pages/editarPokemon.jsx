@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button, Row, Col, Alert } from "react-bootstrap";
+import { Form, Button, Alert, Card } from "react-bootstrap";
 import NavBar from "../components/navBar";
 import { useState, useEffect } from "react";
 import PokemonService from "../services/pokemon.service";
@@ -108,27 +108,23 @@ export default function editarPokemon() {
           </Form>
         </div>
 
-        <div className="exibindo_Pókemon pt-3 bloco">
-          <h4 className="text-center">Nome</h4>
-          <p className="text-center">{pokemon.nome}</p>
-          <hr />
-
-          <h4 className="text-center">Tipo</h4>
-          <p className="text-center">{pokemon.tipo}</p>
-          <hr />
-
-          <h4 className="text-center">Imagem</h4>
-          <img
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.pokedex}.png`}
-            style={{ width: "100px", display: "block" }}
+        <Card className="box-info-pokemon">
+          <Card.Img
+            variant="top"
             alt="Imagem do Pokemon"
-            className="img-pokemon"
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.pokedex}.png`}
           />
-          <hr />
-          <div className="d-flex justify-content-center">
-            <BtnDelete id={`${pokemon.pokedex}`} nome={`${pokemon.nome}`} />
-          </div>
-        </div>
+          <Card.Body>
+            <Card.Title>{pokemon.nome}</Card.Title>
+            <Card.Text>
+              Tipo do {pokemon.nome}: {pokemon.tipo}
+              <hr />
+              <div className="d-flex justify-content-center" >
+                <BtnDelete id={`${pokemon.pokedex}`} nome={`${pokemon.nome}`} />
+              </div>
+            </Card.Text>
+          </Card.Body>
+        </Card>
       </main>
     </>
   );
