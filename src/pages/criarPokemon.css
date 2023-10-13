@@ -9,3 +9,29 @@ main {
 .btn-criar {
     margin: 10px 10px 10px 0;
 }
+
+@media screen and  (max-width: 900px) {
+    .container-input {
+        width: 65%;
+    }
+}
+
+@media screen and  (max-width: 470px) {
+    .container-input {
+        width: 85%;
+    }
+
+    .titulo {
+        font-size: 1.4em;
+    }
+}
+
+@media screen and  (max-width: 340px) {
+    .container-input {
+        width: 100%;
+    }
+
+    .titulo {
+        font-size: 1em;
+    }
+}

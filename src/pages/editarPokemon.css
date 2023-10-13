@@ -1,6 +1,6 @@
 .exibindo_Pókemon {
     background-color: bisque;
-    width: 20%;
+    width: 400px;
     border: 5px double black;
     border-radius: 10px;
     padding: 5px;
@@ -39,3 +39,8 @@ img {
     margin: 10px 10px 10px 0;
 }
 
+@media screen and  (max-width: 415px) {
+    .exibindo_Pókemon {
+        width: 250px;
+    }
+}

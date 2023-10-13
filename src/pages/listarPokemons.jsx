@@ -38,14 +38,14 @@ export default function ListarPokemons() {
           className="d-flex justify-content-center"
           style={{ height: "100%" }}
         >
-          <div className="p-2 cotainer-principal">
+          <div className="cotainer-principal">
             <section className="titulo d-flex justify-content-center">
               <h1>Meus Pokemons</h1>
             </section>
-            <Table striped bordered hover>
+            <Table size="sm" striped bordered hover variant="dark">
               <thead>
                 <tr className="align-items-center">
-                  <th>Nome</th>
+                  <th className="text-center">Nome</th>
                   <th className="text-center">Tipo</th>
                   <th className="text-center">Imagem</th>
                   <th className="text-center">Ações</th>
@@ -66,8 +66,8 @@ export default function ListarPokemons() {
                       <td key={pokemon.pokedex} className="text-center">
                         <img
                           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.pokedex}.png`}
-                          style={{ width: "100px" }}
-                          alt=""
+                          alt="imagem do Pokemon"
+                          className="img-pokemon"
                         />
                       </td>
                       <td className="text-center">

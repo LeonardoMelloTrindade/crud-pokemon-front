@@ -23,7 +23,7 @@ export default function criarPokemon() {
         const newPokemon = pokemonService.post(
           index + 1, // pokedex
           nome,
-          tipo,
+          tipo
         );
         setClicked(true);
         console.log("Novo Pokémon criado:", newPokemon);
@@ -42,7 +42,7 @@ export default function criarPokemon() {
     <>
       <NavBar />
       <div className="d-flex justify-content-center p-3">
-        <h1>Cadastre o Pokemon aqui.</h1>
+        <h1 className="titulo">Cadastre o Pokemon aqui.</h1>
       </div>
       <main
         className=" d-flex justify-content-center"
@@ -50,7 +50,7 @@ export default function criarPokemon() {
       >
         <div className="p-5 container-input">
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3">
+            <Form.Group>
               <Form.Label>Nome do Pokemon</Form.Label>
               <Form.Select
                 value={nome}
@@ -84,6 +84,11 @@ export default function criarPokemon() {
                 );
               })}
             </Form.Select>
+            <Link to={"/crudPokemonFront"}>
+              <Button className="btn-criar" variant="dark" type="submit">
+                Ver Pokemons
+              </Button>
+            </Link>
             <Button className="btn-criar" variant="success" type="submit">
               Criar Pokemon
             </Button>

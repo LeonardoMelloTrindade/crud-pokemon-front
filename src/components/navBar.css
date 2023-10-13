@@ -11,3 +11,15 @@
     letter-spacing: 4px;
     transition: 0.2s;
 }
+
+@media screen and  (max-width: 800px) {
+    .links-nav {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and  (max-width: 415px) {
+    .links-nav {
+        font-size: 1.2em;
+    }
+}

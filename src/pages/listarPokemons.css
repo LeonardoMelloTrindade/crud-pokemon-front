@@ -15,6 +15,13 @@ main {
     font-weight: bolder;
 }
 
+.titulo {
+    margin: 10px 0;
+    
+    font-family: 'Pokemon Solid', sans-serif;
+    letter-spacing: 3px;
+}
+
 .bg {
     background-color: bisque;
 }
@@ -24,8 +31,27 @@ main {
 }
 
 .showNome {
-    font-size: x-large;
+    font-size: 2em;
     font-family: 'Pokemon Solid', sans-serif;
     letter-spacing: 2px;
-}                                                                                                                                                                               
+    text-align: center;
+}   
 
+.img-pokemon {
+    width: 100px;
+}
+
+@media screen and  (max-width: 800px) {
+    .showNome {
+        font-size: 1em;
+    }
+
+    .showTipo {
+        font-size: 0.8em;
+        letter-spacing: 1px;
+    }
+
+    .cotainer-principal {
+        width: 100%;
+    }
+}

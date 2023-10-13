@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
-    <Navbar bg="dark" data-bs-theme="dark">
+    <Navbar bg="dark" data-bs-theme="dark" className="container-nav">
       <Container>
         <Nav.Item>
           <Link
             to={"/crudPokemonFront"}
-            className="links-nav link_personalizado"
+            className="links-nav"
           >
             Pokemons
           </Link>
@@ -20,7 +20,7 @@ export default function NavBar() {
         <Nav.Item>
           <Link
             to={"/crudPokemonFront/createPokemon"}
-            className="links-nav link_personalizado"
+            className="links-nav"
           >
             Criar Pokemon
           </Link>

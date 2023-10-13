@@ -50,8 +50,8 @@ export default function editarPokemon() {
     <>
       <NavBar />
       <main className="containerPrincipal">
-        <div className="pt-2 bloco">
-          <h1>Altere o(a) {pokemon.nome}</h1>
+        <div className="mt-3-2 bloco">
+          <h1 className="titulo">Altere o(a) {pokemon.nome}</h1>
         </div>
         <div className="input_Edit">
           <Form onSubmit={handleSubmit}>
@@ -121,7 +121,8 @@ export default function editarPokemon() {
           <img
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.pokedex}.png`}
             style={{ width: "100px", display: "block" }}
-            alt=""
+            alt="Imagem do Pokemon"
+            className="img-pokemon"
           />
           <hr />
           <div className="d-flex justify-content-center">
